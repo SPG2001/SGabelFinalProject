@@ -21,14 +21,15 @@ import os
     #loop from here
 
 # Look at what cards are in hand and make a list
-def cardReader():
+"""def cardReader():
 
     #buffer to allow swap to game
     time.sleep(5)
 
     #Create card class. This will allow the stats and schools of each card to follow this formula
     class attackcard():
-        def __init__(self, school, mindamage, maxdamage, castchance):
+        def __init__(self, name, school, mindamage, maxdamage, castchance):
+            self.name = name
             self.school = school
             self.mindamage = mindamage
             self.maxdamage = maxdamage
@@ -36,14 +37,14 @@ def cardReader():
 
     #Different cards and their names.
 
-    bloodbat = attackcard('myth',70, 110,0.8)
-    itembloodbat = attackcard('myth',60,100,0.8)
-    itemdarksprite = attackcard('death',55,95,0.85)
-    itemfirecat = attackcard('fire',70,110,0.75)
-    itemfrostbeetle = attackcard('ice',55,95,0.8)
-    itemimp = attackcard('life', 55,95,0.9)
-    itemscarab = attackcard('balance',55,95,0.85)
-    itemthundersnake = attackcard('storm',95,135,0.7)
+    bloodbat = attackcard('bloodbat', 'myth',70, 110,0.8)
+    itembloodbat = attackcard('itembloodbat','myth',60,100,0.8)
+    itemdarksprite = attackcard('itemdarksprite','death',55,95,0.85)
+    itemfirecat = attackcard('itemfirecat','fire',70,110,0.75)
+    itemfrostbeetle = attackcard('itemfrostbeetle','ice',55,95,0.8)
+    itemimp = attackcard('itemimp','life', 55,95,0.9)
+    itemscarab = attackcard('itemscarab','balance',55,95,0.85)
+    itemthundersnake = attackcard('itemthundersnake','storm',95,135,0.7)
 
     #Create an empty list this list will list the cards in our hand.
     cardlist = []
@@ -91,11 +92,10 @@ def cardReader():
 
     #Print what's in the hand, as well as the stats.
 
-    for i in cardlist:
-        print(i.__dict__)
+    print(cardlist.bloodbat.__dict__['name'])
 
 
-cardReader()
+cardReader()"""
 #def pathFinder():
 
     #Keep track of quest arrow direction and move based upon it.
@@ -112,11 +112,35 @@ cardReader()
     #Navigate interactions based upon what they are.
 
 
-#def inventoryTracker():
+def inventoryTracker():
+    drops = []
+    drops = []
+    equipmentlist = {"equipmentdrops": drops}
 
-    #Keep track of player inventory and be able to make comparisons of equipment.
+    print("How many battles have occurred?")
 
-    #Used for both equipment and drop rate data
+    while True:
+        battlecount = input()
+
+        if battlecount.isdecimal():
+            break
+
+        else:
+            print("That is not a number.")
+
+    print("what gear did you aquire? List duplicates as well. Once finished, type finish.")
+    while True:
+        listinput = input()
+        if listinput == 'finish':
+            break
+        else:
+            drops.append(listinput)
+
+    print(equipmentlist["equipmentdrops"])
+
+inventoryTracker()
+
+
 
 
 #def dropTracker():
