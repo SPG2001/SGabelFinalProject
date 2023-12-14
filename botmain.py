@@ -1,8 +1,16 @@
+# INF601 - Advanced Programming in Python
+# Stephen Gabel
+# Final Project
+
+
+# This project sends drop data up to a website to display the statistics of that data.
+
+
 import pyautogui
 import pyautogui as pag
 import time
 import os
-
+import pandas as pd
 #def combatReader():
     #Read the enemy health cards and communicate with the SQLite Database for the stats.
 
@@ -114,7 +122,6 @@ cardReader()"""
 
 def inventoryTracker():
     drops = []
-    drops = []
     equipmentlist = {"equipmentdrops": drops}
 
     print("How many battles have occurred?")
@@ -128,15 +135,23 @@ def inventoryTracker():
         else:
             print("That is not a number.")
 
-    print("what gear did you aquire? List duplicates as well. Once finished, type finish.")
+    print("what gear did you aquire? List duplicates as well. Do not use any punctuation. Once finished, type finish.")
     while True:
         listinput = input()
         if listinput == 'finish':
             break
+
+        elif listinput.isdecimal():
+            print("Please refrain from using numbers.")
+
         else:
             drops.append(listinput)
 
-    print(equipmentlist["equipmentdrops"])
+    equipmentframe = pd.DataFrame.from_dict(equipmentlist, orient="columns")
+    organizedequipmentframe = equipmentframe.groupby('equipmentdrops')['equipmentdrops'].count().sort_values(ascending=[1]).tail()
+    print(organizedequipmentframe.count)
+
+
 
 inventoryTracker()
 
