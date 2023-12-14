@@ -149,7 +149,7 @@ def inventoryTracker():
 
     equipmentframe = pd.DataFrame.from_dict(equipmentlist, orient="columns")
     organizedequipmentframe = equipmentframe.groupby('equipmentdrops')['equipmentdrops'].count().sort_values(ascending=[1]).tail()
-    print(organizedequipmentframe.count)
+    print(organizedequipmentframe)
 
 
 
