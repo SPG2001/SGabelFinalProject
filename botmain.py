@@ -121,10 +121,15 @@ cardReader()"""
 
 
 def inventoryTracker():
+
+    #create drops list, and then place it within a dictionary.
+
     drops = []
     equipmentlist = {"equipmentdrops": drops}
 
     print("How many battles have occurred?")
+
+    #Ask number of battles.
 
     while True:
         battlecount = input()
@@ -134,6 +139,8 @@ def inventoryTracker():
 
         else:
             print("That is not a number.")
+
+    #User inputs what gear they got. Inputs go into drops list.
 
     print("what gear did you aquire? List duplicates as well. Do not use any punctuation. Once finished, type finish.")
     while True:
@@ -146,6 +153,8 @@ def inventoryTracker():
 
         else:
             drops.append(listinput)
+
+    # Transform dictionary into pandas dataframe
 
     equipmentframe = pd.DataFrame.from_dict(equipmentlist, orient="columns")
     organizedequipmentframe = equipmentframe.groupby('equipmentdrops')['equipmentdrops'].count().sort_values(ascending=[1]).tail()
