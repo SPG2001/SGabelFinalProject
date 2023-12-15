@@ -29,7 +29,7 @@ import pandas as pd
     #loop from here
 
 # Look at what cards are in hand and make a list
-"""def cardReader():
+def cardReader():
 
     #buffer to allow swap to game
     time.sleep(5)
@@ -100,10 +100,11 @@ import pandas as pd
 
     #Print what's in the hand, as well as the stats.
 
-    print(cardlist.bloodbat.__dict__['name'])
+    for cards in cardlist:
+        print(cards.__dict__)
 
 
-cardReader()"""
+cardReader()
 #def pathFinder():
 
     #Keep track of quest arrow direction and move based upon it.
@@ -120,7 +121,7 @@ cardReader()"""
     #Navigate interactions based upon what they are.
 
 
-def inventoryTracker():
+'''def inventoryTracker():
 
     #create drops list, and then place it within a dictionary.
 
@@ -162,7 +163,7 @@ def inventoryTracker():
 
 
 
-inventoryTracker()
+inventoryTracker()'''
 
 
 
